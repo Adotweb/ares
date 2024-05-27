@@ -188,8 +188,11 @@ class AresHost{
 
 						headers[s[0]] = s[1]	
 					})
-					
-					headers["Content-Length"] =  JSON.stringify(body).length.toString()
+		
+					if(body){
+
+						headers["Content-Length"] =  JSON.stringify(body).length.toString()
+					}
 
 					fetch("http://localhost:" + this.port + data.route, {
 						method:data.method,
